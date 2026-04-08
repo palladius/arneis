@@ -72,7 +72,8 @@ if os.getenv("ANTHROPIC_BASE_URL"):
 client: Anthropic = Anthropic(base_url=os.getenv("ANTHROPIC_BASE_URL"))
 
 # Define the Model ID used for all completions, sourced from environment variables
-MODEL: str = os.environ.get("MODEL_ID", "claude-3-5-sonnet-20240620")
+from constants import DEFAULT_FAST_MODEL
+MODEL: str = os.environ.get("MODEL_ID", DEFAULT_FAST_MODEL)
 
 # Define the default system instructions for the AI agent
 DEFAULT_SYSTEM: str = f"You are a coding agent at {os.getcwd()}. Use tools to solve tasks. Act, don't explain."
